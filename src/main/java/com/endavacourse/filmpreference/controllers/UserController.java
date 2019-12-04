@@ -1,8 +1,8 @@
 package com.endavacourse.filmpreference.controllers;
 
-import com.endavacourse.filmpreference.model.User;
-import com.endavacourse.filmpreference.model.UserRepository;
-import com.endavacourse.filmpreference.service.UserService;
+import com.endavacourse.filmpreference.model.UserList;
+import com.endavacourse.filmpreference.repository.UserListRepository;
+import com.endavacourse.filmpreference.service.UserListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,15 +15,15 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserListService userListService;
 
     @Autowired
-    private UserRepository repository;
+    private UserListRepository repository;
 
     @GetMapping
     @RequestMapping("/users")
-    List<User> getUsers() {
-        return userService.getAll(repository);
+    List<UserList> getUsers() {
+        return userListService.getAll(repository);
     }
 
 }

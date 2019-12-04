@@ -1,12 +1,9 @@
 package com.endavacourse.filmpreference.controllers;
 
-import com.endavacourse.filmpreference.model.Movie;
-import com.endavacourse.filmpreference.model.MovieRepository;
-import com.endavacourse.filmpreference.service.MovieService;
+import com.endavacourse.filmpreference.model.MoovieList;
+import com.endavacourse.filmpreference.service.MoovieListService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,14 +12,12 @@ import java.util.List;
 public class MovieController {
 
     @Autowired
-    private MovieService movieService;
+    private MoovieListService moovieListService;
 
-    @Autowired
-    private MovieRepository repository;
-
-    @GetMapping
-    @RequestMapping("/movies")
-    List<Movie> getMovies() {
-        return movieService.getAll(repository);
+    @GetMapping("/movies")
+    @ResponseBody
+    public List<MoovieList> movies() {
+        return moovieListService.getAll();
     }
+
 }

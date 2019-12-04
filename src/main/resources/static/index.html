@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="/webjars/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/webjars/datatables/1.10.20/js/jquery.dataTables.js"></script>
+    <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/webjars/datatables/1.10.20/css/jquery.dataTables.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <table class="display" id="movies" style="width: 100%;">
+        <thead>
+
+        </thead>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+
+
+    <script type="application/javascript">
+        $(document).ready(function () {
+            let table = $("#movies").DataTable({
+                ajax: {
+                    url: '/moovieList',
+                    dataSrc:"_embedded.moovieList",
+                },
+                columns: [
+                    // somedata
+                    //{data: "title"},
+                ]
+            })
+        });
+    </script>
+</div>
+
+
+
+
+</body>
+</html>
